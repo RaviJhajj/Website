@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Click Counter</title>
+</head>
+<body>
+  <h1>Click Counter</h1>
+  <div>
+    <button onclick='click()'>Click</button>
+  </div>
+  <div id="counter">Your count: 0</div>
+  <script>
+    let count = 0; 
+    function click() {
+      count++
+      document.getElementById('counter').textContent = `Your count: ${count}`;
+    }
+    
+    
+  </script>
+</body>
