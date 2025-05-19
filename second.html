@@ -12,8 +12,12 @@
   <div id="counter">0</div>
   <br>
   <div>
-   <button id="multiplier" onclick="activateMultiplier(1)" style="display: none;">x10 Multiplier</button>
-   <button id="multiplierA" onclick="activateMultiplier(2)" style="display: none;">x100 Multiplier</button>
+   <button id="multiplier" onclick="activateMultiplier(1)" style="display: none;">x10</button>
+   <button id="multiplierA" onclick="activateMultiplier(2)" style="display: none;">x100</button>
+   <button id="multiplierB" onclick="activateMultiplier(3)" style="display: none;">x1,000</button>
+   <button id="multiplierC" onclick="activateMultiplier(4)" style="display: none;">x100,000</button>
+   <button id="multiplierD" onclick="activateMultiplier(5)" style="display: none;">x1 Million</button>
+   <button id="multiplierE" onclick="activateMultiplier(6)" style="display: none;">x1 Billion</button>
   </div>
   <br><div id="currentMultiplier">Multiplier: x1</div>
   <script>
@@ -24,8 +28,16 @@
       document.getElementById('counter').textContent = count;
       if (count >= 10 && count < 100) {
         document.getElementById('multiplier').style.display = 'inline-block';
-      } else if (count >= 100 && count < 1000) {
+      } else if (count >= 100 && count < 2000) {
         document.getElementById('multiplierA').style.display = 'inline-block';
+      } else if (count >= 2000 && count < 10000) {
+        document.getElementById('multiplierB').style.display = 'inline-block';
+      } else if (count >= 10000 && count < 50000) {
+        document.getElementById('multiplierC').style.display = 'inline-block';
+      } else if (count >= 50000 && count < 2000000) {
+        document.getElementById('multiplierD').style.display = 'inline-block';
+      } else if (count >= 2000000) {
+        document.getElementById('multiplierE').style.display = 'inline-block';
       } else {};
       document.getElementById('currentMultiplier').textContent = 'Multiplier: x' + multiply;
     }
@@ -36,6 +48,26 @@
     document.getElementById('multiplier').disabled = true;
   } else if (level === 2) {
     multiply = 100;
+    document.getElementById('multiplierA').style.opacity = 0.2;
+    document.getElementById('multiplierA').disabled = true;
+  }
+    else if (level === 3) {
+    multiply = 1000;
+    document.getElementById('multiplierA').style.opacity = 0.2;
+    document.getElementById('multiplierA').disabled = true;
+  }
+    else if (level === 4) {
+    multiply = 100000;
+    document.getElementById('multiplierA').style.opacity = 0.2;
+    document.getElementById('multiplierA').disabled = true;
+  }
+    else if (level === 5) {
+    multiply = 1000000;
+    document.getElementById('multiplierA').style.opacity = 0.2;
+    document.getElementById('multiplierA').disabled = true;
+  }
+    else if (level === 6) {
+    multiply = 1000000000;
     document.getElementById('multiplierA').style.opacity = 0.2;
     document.getElementById('multiplierA').disabled = true;
   }
