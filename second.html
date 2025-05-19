@@ -5,14 +5,17 @@
   <title>Click Counter</title>
 </head>
 <body>
-  <h1>Click Counter</h1><br>
+  <h1>Click Counter</h1>
   <div>
     <button onclick='increase()'>Click</button>
   </div>
   <div id="counter">0</div>
   <br>
-  <button id="multiplier" onclick="activateMultiplier(A)" style="display: none;">x10 Multiplier</button>
-  <button id="multiplierA" onclick="activateMultiplier(B)" style="display: none;">x100 Multiplier</button>
+  <div>
+   <button id="multiplier" onclick="activateMultiplier(1)" style="display: none;">x10 Multiplier</button>
+   <button id="multiplierA" onclick="activateMultiplier(2)" style="display: none;">x100 Multiplier</button>
+  </div>
+  <br><div id="currentMultiplier">Multiplier: x1</div>
   <script>
     let count = 0;
     let multiply = 1;
@@ -23,15 +26,19 @@
         document.getElementById('multiplier').style.display = 'inline-block';
       } else if (count >= 100 && count < 1000) {
         document.getElementById('multiplierA').style.display = 'inline-block';
-      } else {}
+      } else {};
+      document.getElementById('currentMultiplier').textContent = 'Multiplier: x' + multiply;
     }
-    function activateMultiplier(A) {
-      multiply = 10;
-      document.getElementById('multiplier').style.opacity = 0.2;
-    }
-    function activateMultiplier(B) {
-      multiply = 100;
-      document.getElementById('multiplierA').style.opacity = 0.2;
+    function activateMultiplier(level) {
+      if (level === 1) {
+    multiply = 10;
+    document.getElementById('multiplier').style.opacity = 0.2;
+    document.getElementById('multiplier').disabled = true;
+  } else if (level === 2) {
+    multiply = 100;
+    document.getElementById('multiplierA').style.opacity = 0.2;
+    document.getElementById('multiplierA').disabled = true;
+  }
     }
   </script>
 </body>
