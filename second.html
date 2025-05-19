@@ -5,26 +5,33 @@
   <title>Click Counter</title>
 </head>
 <body>
-  <h1>Click Counter</h1><br><br>
+  <h1>Click Counter</h1>
   <div>
     <button onclick='increase()'>Click</button>
   </div>
   <div id="counter">0</div>
   <br>
   <button id="multiplier" onclick="activateMultiplier()" style="display: none;">x10 Multiplier</button>
+  <button id="multiplierA" onclick="activateMultiplier()" style="display: none;">x100 Multiplier</button>
   <script>
     let count = 0;
     let multiply = 1;
     function increase() {
       count += multiply;
       document.getElementById('counter').textContent = count;
-      if (count >= 10) {
+      if (count >= 10 && count < 100) {
         document.getElementById('multiplier').style.display = 'inline-block';
+      } else if (count >= 100 && count < 1000) {
+        document.getElementById('multiplierA').style.display = 'inline-block';
       } else {}
     }
     function activateMultiplier() {
       multiply = 10;
-      document.getElementById('multiplier').style.display = none;
+      document.getElementById('multiplier').style.opacity = 0.2;
+    }
+    function activateMultiplier() {
+      multiply = 100;
+      document.getElementById('multiplierA').style.opacity = 0.2;
     }
   </script>
 </body>
