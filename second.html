@@ -5,12 +5,12 @@
   <title>Click Counter</title>
 </head>
 <body>
-  <h1>Click Counter</h1><br>
+  <h1>Click Counter</h1><br><br>
   <div>
     <button onclick='increase()'>Click</button>
   </div>
   <div id="counter">0</div>
-  <br><br>
+  <br>
   <button id="multiplier" onclick="activateMultiplier()" style="display: none;">x10 Multiplier</button>
   <script>
     let count = 0;
@@ -22,7 +22,9 @@
         document.getElementById('multiplier').style.display = 'inline-block';
       } else {}
     }
-    
-    
+    function activateMultiplier() {
+      multiply = 10;
+      document.getElementById('multiplier').style.display = none;
+    }
   </script>
 </body>
