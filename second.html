@@ -5,14 +5,14 @@
   <title>Click Counter</title>
 </head>
 <body>
-  <h1>Click Counter</h1>
+  <h1>Click Counter</h1><br>
   <div>
     <button onclick='increase()'>Click</button>
   </div>
   <div id="counter">0</div>
   <br>
-  <button id="multiplier" onclick="activateMultiplier()" style="display: none;">x10 Multiplier</button>
-  <button id="multiplierA" onclick="activateMultiplier()" style="display: none;">x100 Multiplier</button>
+  <button id="multiplier" onclick="activateMultiplier(A)" style="display: none;">x10 Multiplier</button>
+  <button id="multiplierA" onclick="activateMultiplier(B)" style="display: none;">x100 Multiplier</button>
   <script>
     let count = 0;
     let multiply = 1;
@@ -25,11 +25,11 @@
         document.getElementById('multiplierA').style.display = 'inline-block';
       } else {}
     }
-    function activateMultiplier() {
+    function activateMultiplier(A) {
       multiply = 10;
       document.getElementById('multiplier').style.opacity = 0.2;
     }
-    function activateMultiplier() {
+    function activateMultiplier(B) {
       multiply = 100;
       document.getElementById('multiplierA').style.opacity = 0.2;
     }
