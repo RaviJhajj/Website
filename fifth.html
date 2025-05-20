@@ -25,7 +25,7 @@
   </style>
 </head>
 <body>
-  <h1>Tic-Tac-Toee</h1>
+  <h1>Tic-Tac-Toe</h1>
   <table>
     <tr>
       <td onclick="move(0)"></td>
@@ -51,7 +51,12 @@
   function move(index) {
     if (board[index] === "" && player === 'X') {
       board[index] = 'X';
-      document.querySelectorAll('td')[index].innerText = "X";
+      document.querySelectorAll('td')[index].innerText = 'X';
+      player = 'O';
+    } else if (board[index] === "" && player === 'O') {
+      board[index] = 'O';
+      document.querySelectorAll('td')[index].innerText = 'O';
+      player = 'X';
     }
   }
   
