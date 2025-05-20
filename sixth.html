@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Connect4</title>
+  <title>Connect5</title>
   <style>
     body {
       font-family: sans-serif;
@@ -31,10 +31,10 @@
 </head>
 <body>
   <p><a href='index.html'>Home</a></p>
-  <h1>Unrestricted Mega Connect 4</h1>
+  <h1>Unrestricted Mega Connect 5</h1>
   <p>Play with a friend</p>
-  <p>Rules: It is just Connect 4, but bigger... and you can place the chips anywhere. 
-    Also, the second player's first turn is snaked.</p>
+  <p>Rules: It is just Connect 4, but bigger... and you have to connect 5. 
+    Also, you can place the chips anywhere.</p>
   <table>
     <tr>
       <td onclick="move(0)"></td>
@@ -149,30 +149,25 @@
               "", "", "", "", "", "", "", "", "",
               "", "", "", "", "", "", "", "", ""];
   let player = 'X';
+  let gameOver = '';
   function move(index) {
     if (board[index] === "" && player === 'X') {
       board[index] = 'X';
       document.querySelectorAll('td')[index].innerText = 'X';
       player = 'O';
+      checkWin();
     } else if (board[index] === "" && player === 'O') {
       board[index] = 'O';
       document.querySelectorAll('td')[index].innerText = 'O';
-      player = 'Z';
-    } else if (board[index] === "" && player === 'Z') {
-      board[index] = 'O';
-      document.querySelectorAll('td')[index].innerText = 'O';
-      player = 'C';
-    } else if (board[index] === "" && player === 'C') {
-      board[index] = 'X';
-      document.querySelectorAll('td')[index].innerText = 'X';
-      player = 'V';
-    } else if (board[index] === "" && player === 'V') {
-      board[index] = 'O';
-      document.querySelectorAll('td')[index].innerText = 'O';
-      player = 'C';
+      player = 'X';
+      checkWin();
     }
   }
-   function reset() {
+  function checkWin() {
+    if (***********) {gameOver = 'Y';}
+    if (gameOver === 'Y') {alert('Game Over');}
+  }
+  function reset() {
      board = ["", "", "", "", "", "", "", "", "",
               "", "", "", "", "", "", "", "", "",
               "", "", "", "", "", "", "", "", "",
@@ -183,6 +178,7 @@
               "", "", "", "", "", "", "", "", "",
               "", "", "", "", "", "", "", "", ""];
      player = "X";
+     gameOver = '';
      document.querySelectorAll("td").forEach(cell => cell.innerText = "");
    }
 </script>
