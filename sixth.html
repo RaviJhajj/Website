@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tic-Tac-Toe</title>
+  <title>Connect4</title>
   <style>
     body {
       font-family: sans-serif;
@@ -31,29 +31,122 @@
 </head>
 <body>
   <p><a href='index.html'>Home</a></p>
-  <h1>Tic-Tac-Toe</h1>
+  <h1>Unrestricted Mega Connect 4</h1>
   <p>Play with a friend</p>
+  <p>Rules: It is just Connect 4, but bigger... and you can place the chips anywhere</p>
   <table>
     <tr>
       <td onclick="move(0)"></td>
       <td onclick="move(1)"></td>
       <td onclick="move(2)"></td>
-    </tr>
-    <tr>
       <td onclick="move(3)"></td>
       <td onclick="move(4)"></td>
       <td onclick="move(5)"></td>
-    </tr>
-    <tr>
       <td onclick="move(6)"></td>
       <td onclick="move(7)"></td>
       <td onclick="move(8)"></td>
+    </tr>
+    <tr>
+      <td onclick="move(9)"></td>
+      <td onclick="move(10)"></td>
+      <td onclick="move(11)"></td>
+      <td onclick="move(12)"></td>
+      <td onclick="move(13)"></td>
+      <td onclick="move(14)"></td>
+      <td onclick="move(15)"></td>
+      <td onclick="move(16)"></td>
+      <td onclick="move(17)"></td>
+    </tr>
+    <tr>
+      <td onclick="move(18)"></td>
+      <td onclick="move(19)"></td>
+      <td onclick="move(20)"></td>
+      <td onclick="move(21)"></td>
+      <td onclick="move(22)"></td>
+      <td onclick="move(23)"></td>
+      <td onclick="move(24)"></td>
+      <td onclick="move(25)"></td>
+      <td onclick="move(26)"></td>
+    </tr>
+    <tr>
+      <td onclick="move(27)"></td>
+      <td onclick="move(28)"></td>
+      <td onclick="move(29)"></td>
+      <td onclick="move(30)"></td>
+      <td onclick="move(31)"></td>
+      <td onclick="move(32)"></td>
+      <td onclick="move(33)"></td>
+      <td onclick="move(34)"></td>
+      <td onclick="move(35)"></td>
+    </tr>
+    <tr>
+      <td onclick="move(36)"></td>
+      <td onclick="move(37)"></td>
+      <td onclick="move(38)"></td>
+      <td onclick="move(39)"></td>
+      <td onclick="move(40)"></td>
+      <td onclick="move(41)"></td>
+      <td onclick="move(42)"></td>
+      <td onclick="move(43)"></td>
+      <td onclick="move(44)"></td>
+    </tr>
+    <tr>
+      <td onclick="move(45)"></td>
+      <td onclick="move(46)"></td>
+      <td onclick="move(47)"></td>
+      <td onclick="move(48)"></td>
+      <td onclick="move(49)"></td>
+      <td onclick="move(50)"></td>
+      <td onclick="move(51)"></td>
+      <td onclick="move(52)"></td>
+      <td onclick="move(53)"></td>
+    </tr>
+    <tr>
+      <td onclick="move(54)"></td>
+      <td onclick="move(55)"></td>
+      <td onclick="move(56)"></td>
+      <td onclick="move(57)"></td>
+      <td onclick="move(58)"></td>
+      <td onclick="move(59)"></td>
+      <td onclick="move(60)"></td>
+      <td onclick="move(61)"></td>
+      <td onclick="move(62)"></td>
+    </tr>
+    <tr>
+      <td onclick="move(63)"></td>
+      <td onclick="move(64)"></td>
+      <td onclick="move(65)"></td>
+      <td onclick="move(66)"></td>
+      <td onclick="move(67)"></td>
+      <td onclick="move(68)"></td>
+      <td onclick="move(69)"></td>
+      <td onclick="move(70)"></td>
+      <td onclick="move(71)"></td>
+    </tr>
+    <tr>
+      <td onclick="move(72)"></td>
+      <td onclick="move(73)"></td>
+      <td onclick="move(74)"></td>
+      <td onclick="move(75)"></td>
+      <td onclick="move(76)"></td>
+      <td onclick="move(77)"></td>
+      <td onclick="move(78)"></td>
+      <td onclick="move(79)"></td>
+      <td onclick="move(80)"></td>
     </tr>
   </table>
   <button onclick="reset()">Reset</button>
 </body>
 <script>
-  let board = ["", "", "", "", "", "", "", "", ""];
+  let board = ["", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", ""];
   let player = 'X';
   function move(index) {
     if (board[index] === "" && player === 'X') {
@@ -67,7 +160,15 @@
     }
   }
    function reset() {
-     board = ["", "", "", "", "", "", "", "", ""];
+     board = ["", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", "",
+              "", "", "", "", "", "", "", "", ""];
      player = "X";
      document.querySelectorAll("td").forEach(cell => cell.innerText = "");
    }
