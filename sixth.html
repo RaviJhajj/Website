@@ -33,7 +33,8 @@
   <p><a href='index.html'>Home</a></p>
   <h1>Unrestricted Mega Connect 4</h1>
   <p>Play with a friend</p>
-  <p>Rules: It is just Connect 4, but bigger... and you can place the chips anywhere. Also, the turns are snaked</p>
+  <p>Rules: It is just Connect 4, but bigger... and you can place the chips anywhere. 
+    Also, the second player's first turn is snaked.</p>
   <table>
     <tr>
       <td onclick="move(0)"></td>
@@ -166,9 +167,9 @@
       document.querySelectorAll('td')[index].innerText = 'X';
       player = 'V';
     } else if (board[index] === "" && player === 'V') {
-      board[index] = 'X';
-      document.querySelectorAll('td')[index].innerText = 'X';
-      player = 'O';
+      board[index] = 'O';
+      document.querySelectorAll('td')[index].innerText = 'O';
+      player = 'C';
     }
   }
    function reset() {
