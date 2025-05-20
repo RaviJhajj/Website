@@ -22,14 +22,10 @@
       border: 2px solid #000;
       cursor: pointer;
     }
-    #status {
-      margin-top: 20px;
-      font-size: 24px;
-    }
   </style>
 </head>
 <body>
-  <h1>Tic-Tac-Toe</h1>
+  <h1>Tic-Tac-Toee</h1>
   <table>
     <tr>
       <td onclick="move(0)"></td>
@@ -52,7 +48,11 @@
 <script>
   let board = ["", "", "", "", "", "", "", "", ""];
   let player = 'X';
-  let end = false;
+  function move(index) {
+    if (board[index] === "" && player = 'X') {
+      document.querySelectorAll("td").forEach(cell => cell.innerText = "X");
+    }
+  }
   
 </script>
 </html>
