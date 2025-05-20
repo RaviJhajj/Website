@@ -68,6 +68,7 @@
    function reset() {
      board = ["", "", "", "", "", "", "", "", ""];
      player = "X";
+     document.querySelectorAll("td").forEach(cell => cell.innerText = "");
    }
   }
 </script>
