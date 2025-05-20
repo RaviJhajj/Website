@@ -156,7 +156,19 @@
     } else if (board[index] === "" && player === 'O') {
       board[index] = 'O';
       document.querySelectorAll('td')[index].innerText = 'O';
-      player = 'X';
+      player = 'Z';
+    } else if (board[index] === "" && player === 'Z') {
+      board[index] = 'O';
+      document.querySelectorAll('td')[index].innerText = 'O';
+      player = 'C';
+    } else if (board[index] === "" && player === 'C') {
+      board[index] = 'X';
+      document.querySelectorAll('td')[index].innerText = 'X';
+      player = 'V';
+    } else if (board[index] === "" && player === 'V') {
+      board[index] = 'X';
+      document.querySelectorAll('td')[index].innerText = 'X';
+      player = 'O';
     }
   }
    function reset() {
