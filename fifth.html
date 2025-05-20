@@ -50,7 +50,8 @@
   let player = 'X';
   function move(index) {
     if (board[index] === "" && player === 'X') {
-      document.querySelectorAll("td").forEach(cell => cell.innerText = "X");
+      board[index] = 'X';
+      document.querySelectorAll('td')[index].innerText = "X";
     }
   }
   
