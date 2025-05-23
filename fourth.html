@@ -19,6 +19,27 @@
       font-size: 1.5rem;
       margin-bottom: 20px;
     }
+    
+    #timer {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+    #reset {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+#reset:hover {
+  background-color: #0056b3;
+}
 
     #grid {
       display: grid;
@@ -51,6 +72,7 @@
   <h1>Whack-a-Mole</h1>
   <div id="score">Score: 0</div>
   <div id="timer">Time: 60</div>
+  <button id="reset">Reset Timer</button>
   <div id="grid">
     <div class="hole" id="hole0"></div>
     <div class="hole" id="hole1"></div>
@@ -63,53 +85,67 @@
     <div class="hole" id="hole8"></div>
   </div>
 
-  <script>
-    const holes = document.querySelectorAll('.hole');
-    let score = 0;
-    let activeHole = null;
+ <script>
+  const holes = document.querySelectorAll('.hole');
+  let score = 0;
+  let activeHole = null;
+  let timeLeft = 60;
+  let moleInterval;
+  let timerInterval;
 
-    function randomHole() {
-      const index = Math.floor(Math.random() * holes.length);
-      return holes[index];
-    }
-
-    function showMole() {
-      if (activeHole) {
-        activeHole.innerHTML = '';
-      }
-
-      const hole = randomHole();
-      const mole = document.createElement('div');
-      mole.classList.add('mole');
-      mole.addEventListener('click', bonk);
-      hole.appendChild(mole);
-      activeHole = hole;
-    }
-
-    function bonk() {
-      score += 1;
-      document.getElementById('score').textContent = `Score: ${score}`;
-      this.remove(); // remove mole after bonk
-      activeHole = null;
-    }
-
-    const moleInterval = setInterval(showMole, 600); // mole pops up every second
-   
-    let timeLeft = 60;
-const timerDisplay = document.getElementById('timer');
-
-const countdown = setInterval(() => {
-  timeLeft--;
-  timerDisplay.textContent = `Time: ${timeLeft}`;
-  
-  if (timeLeft <= 0) {
-    clearInterval(countdown);
-    clearInterval(moleInterval);
-    if (activeHole) activeHole.innerHTML = '';
-    alert(`Time's up! Final score: ${score}`);
+  function randomHole() {
+    const index = Math.floor(Math.random() * holes.length);
+    return holes[index];
   }
-}, 1000);
-  </script>
+
+  function showMole() {
+    if (activeHole) {
+      activeHole.innerHTML = '';
+    }
+    const hole = randomHole();
+    const mole = document.createElement('div');
+    mole.classList.add('mole');
+    mole.addEventListener('click', bonk);
+    hole.appendChild(mole);
+    activeHole = hole;
+  }
+
+  function bonk() {
+    score += 1;
+    document.getElementById('score').textContent = `Score: ${score}`;
+    this.remove(); 
+    activeHole = null;
+  }
+
+  function startGame() {
+    score = 0;
+    timeLeft = 60;
+    document.getElementById('score').textContent = `Score: ${score}`;
+    document.getElementById('timer').textContent = `Time: ${timeLeft}`;
+
+    moleInterval = setInterval(showMole, 600);
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      document.getElementById('timer').textContent = `Time: ${timeLeft}`;
+      if (timeLeft <= 0) {
+        clearInterval(moleInterval);
+        clearInterval(timerInterval);
+        if (activeHole) activeHole.innerHTML = '';
+        activeHole = null;
+      }
+    }, 1000);
+  }
+
+  document.getElementById('reset').addEventListener('click', () => {
+    clearInterval(moleInterval);
+    clearInterval(timerInterval);
+    if (activeHole) activeHole.innerHTML = '';
+    activeHole = null;
+    startGame();
+  });
+
+  startGame(); 
+</script>
 </body>
 </html>
 
