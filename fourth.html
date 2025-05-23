@@ -50,6 +50,7 @@
   <p><a href='index.html'>Home</a></p>
   <h1>Whack-a-Mole</h1>
   <div id="score">Score: 0</div>
+  <div id="timer">Time: 60</div>
   <div id="grid">
     <div class="hole" id="hole0"></div>
     <div class="hole" id="hole1"></div>
@@ -92,7 +93,22 @@
       activeHole = null;
     }
 
-    setInterval(showMole, 600); // mole pops up every second
+    const moleInterval = setInterval(showMole, 600); // mole pops up every second
+   
+    let timeLeft = 60;
+const timerDisplay = document.getElementById('timer');
+
+const countdown = setInterval(() => {
+  timeLeft--;
+  timerDisplay.textContent = `Time: ${timeLeft}`;
+  
+  if (timeLeft <= 0) {
+    clearInterval(countdown);
+    clearInterval(moleInterval);
+    if (activeHole) activeHole.innerHTML = '';
+    alert(`Time's up! Final score: ${score}`);
+  }
+}, 1000);
   </script>
 </body>
 </html>
