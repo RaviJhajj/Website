@@ -164,7 +164,37 @@
     }
   }
   function checkWin() {
-    if (***********) {gameOver = 'Y';}
+    const size = 9;
+    const winCount = 5;
+    function get(x, y) {
+      if (x < 0 || x >= size || y < 0 || y >= size) return null;
+      return board[y * size + x];
+    }
+    for (let y = 0; y < size; y++) {
+      for (let x = 0; x < size; x++) {
+        let current = get(x, y);
+        if (!current) continue;
+        const directions = [
+          [1, 0],   
+          [0, 1],   
+          [1, 1],   
+          [1, -1]   
+        ];
+        for (let [dx, dy] of directions) {
+          let count = 1;
+          for (let i = 1; i < winCount; i++) {
+            if (get(x + i * dx, y + i * dy) === current) {
+              count++;
+            } else {
+              break;
+            }
+          }
+          if (count === winCount) {
+            gameOver = 'Y';
+          }
+        }
+      }
+    }
     if (gameOver === 'Y') {alert('Game Over');}
   }
   function reset() {
